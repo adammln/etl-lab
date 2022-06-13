@@ -27,8 +27,8 @@ dag = DAG(
 )
 
 GCP_CONN_ID = 'google_cloud_default'
-GCS_BUCKET = 'adamln-datalake1'
-EMPLOYEES_RAW_DATA_DIR = '1-raw/mysql-employees/'
+GCS_BUCKET = '<YOUR_GCS_BUCKET>'
+EMPLOYEES_RAW_DATA_DIR = '<YOUR_CUSTOM_DIRECTORY_IN_GCS>/mysql-employees/'
 MYSQL_CONN_ID = 'mysql_default'
 
 extraction_done = DummyOperator(

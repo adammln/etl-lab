@@ -16,7 +16,7 @@ sudo -u root mysql < employees.sql
 
 # granting connection from airflow to mysql
 # sudo mysql
-# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'insert_password';
+# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 # exit
 
 
