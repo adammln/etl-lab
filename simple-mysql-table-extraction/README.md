@@ -9,9 +9,9 @@
 4. specify your google cloud storage bucket name under `GCS_BUCKET` variable (1-extract_employees_raw.py, line 30)
 5. specify target file path under `EMPLOYEES_RAW_DATA_DIR` variable (1-extract_employees_raw.py, line 31)
 6. head to ~/airflow: `cd ~/airflow`
-7. activate scheduler: `airflow scheduler`
-8. open another terminal: `airflow webserver -p 8080`
+7. activate virtualenv, then start scheduler: `airflow scheduler`
+8. open another terminal, activate virtualenv, then start webserver: `airflow webserver -p 8080`
 9. open airflow GUI, do these following things:
-    - modify & make corrections to connection with id: `mysql_default`
-    - modify & make corrections to connection with id: `google_cloud_default`
+    - setup MySQL connection with connection id=`mysql_default`
+    - setup Google Cloud Platform connection with connection id: `google_cloud_default` _(make sure it has GCS admin role)_
 10. trigger dags
