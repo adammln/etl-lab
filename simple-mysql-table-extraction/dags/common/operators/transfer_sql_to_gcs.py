@@ -1,6 +1,7 @@
 from airflow.providers.google.cloud.transfers.sql_to_gcs import BaseSQLToGCSOperator
 from airflow.providers.mysql.hooks.mysql import MySqlHook
-from typing import Sequence 
+from typing import Sequence, Optional
+from datetime import datetime
 
 class MySQLToGCSOperator(BaseSQLToGCSOperator):
     """
@@ -66,13 +67,15 @@ class MySQLToGCSOperator(BaseSQLToGCSOperator):
     def __init__(
         self,
         *,
-        mysql_conn_id,
-        parameters=None,
+        approx_max_file_size_bytes: int = 32000000, # should be 32MB per part
+        mysql_conn_id: str,
+        parameters: Optional[dict] = None,
         **kwargs,
     ) -> None:
-        super().__init__(**kwargs)
+        super(MySQLToGCSOperator, self).__init__(**kwargs)
         self.mysql_conn_id = mysql_conn_id
         self.parameters = parameters
+        self.approx_max_file_size_bytes = approx_max_file_size_bytes
 
     def query(self):
         mysql = MySqlHook(
@@ -84,7 +87,19 @@ class MySQLToGCSOperator(BaseSQLToGCSOperator):
         return cursor
 
     def field_to_bigquery(self, field):
+        # TODO: Must be implemented
         return
 
     def convert_type(self, value, schema_type, **kwargs):
-        return
+        if (schema_type == "INTEGER"):
+            return int(value)
+        elif (schema_type == "FLOAT"):
+            return float(value)
+        elif (schema_type == "DATE"):
+            return datetime.strptime(value, '%Y-%m-%d').date()
+        elif (schema_type == "DATETIME"):
+            return datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+        elif (schema_type == "STRING"):
+            return str(value)
+        else:
+            return value

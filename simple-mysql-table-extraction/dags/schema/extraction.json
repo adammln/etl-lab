@@ -1,0 +1,74 @@
+[
+    {
+        "description": "employee id",
+        "mode": "REQUIRED",
+        "name": "emp_no",
+        "type": "INTEGER"
+    },  
+    {
+        "description": "department id",
+        "mode": "REQUIRED",
+        "name": "dept_no",
+        "type": "STRING"
+    },  
+    {
+        "description": "department name",
+        "mode": "NULLABLE",
+        "name": "dept_name",
+        "type": "STRING"
+    },
+    {
+        "description": "date start",
+        "mode": "NULLABLE",
+        "name": "from_date",
+        "type": "DATE"
+    },
+    {
+        "description": "date end",
+        "mode": "NULLABLE",
+        "name": "to_date",
+        "type": "DATE"
+    },
+    {
+        "description": "first name",
+        "mode": "REQUIRED",
+        "name": "first_name",
+        "type": "STRING"
+    },
+    {
+        "description": "last name",
+        "mode": "REQUIRED",
+        "name": "last_name",
+        "type": "STRING"
+    },
+    {
+        "description": "gender",
+        "mode": "NULLABLE",
+        "name": "gender",
+        "type": "STRING"
+    },
+    {
+        "description": "hire date",
+        "mode": "NULLABLE",
+        "name": "hire_date",
+        "type": "DATE"
+    },
+    {
+        "description": "birth date",
+        "mode": "NULLABLE",
+        "name": "birth_date",
+        "type": "DATE"
+    },
+    {
+        "description": "employee salary",
+        "mode": "NULLABLE",
+        "name": "salary",
+        "type": "INTEGER"
+    },
+    {
+        "description": "first name",
+        "mode": "REQUIRED",
+        "name": "title",
+        "type": "STRING"
+    }
+]
